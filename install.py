@@ -1,7 +1,5 @@
 from subprocess import run
 
-# r = lambda command, get_out=False: run(command, shell=True, capture_output=get_out, text=get_out)
-
 def runeach(commands):
     for command in commands:
         run(command, shell=True);
