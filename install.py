@@ -18,8 +18,8 @@ runeach([
     'sudo rm -rf $HOME/paru-git',
 
     # install system packages
-    'sudo pacman -S --needed --noconfirm git neovim pyenv hyprland hyprpaper zsh noto-fonts-emoji adobe-source-han-sans-jp-fonts vlc eog waybar polkit-kde-agent xdg-desktop-portal-hyprland xdg-desktop-portal-gtk gnome-themes-extra fastfetch wl-clipboard wtype ranger wezterm discord dunst fontconfig zip unzip p7zip lsd bat',
-    'paru -S --noconfirm --needed brave-bin rofi-wayland rofimoji clipse hyprshot spotify visual-studio-code-bin adwaita-qt5-git adwaita-qt6-git fnm',
+    'sudo pacman -S --needed --noconfirm git neovim pyenv hyprland hyprpaper zsh noto-fonts-emoji adobe-source-han-sans-jp-fonts vlc eog waybar polkit-kde-agent xdg-desktop-portal-hyprland xdg-desktop-portal-gtk gnome-themes-extra fastfetch wl-clipboard wtype ranger wezterm discord dunst fontconfig zip unzip p7zip lsd bat fzf',
+    'paru -S --noconfirm --needed brave-bin rofi-wayland rofimoji clipse hyprshot spotify adwaita-qt5-git adwaita-qt6-git fnm',
 
     # zsh plugins
     'chsh -s $(which zsh)',
