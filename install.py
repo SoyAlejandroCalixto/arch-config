@@ -39,7 +39,7 @@ runeach([
 ])
 
 # disable nouveau if you are using it
-out = run('lsmod', capture_output=True, text=True)
+out = run('lsmod', shell=True, capture_output=True, text=True)
 if 'nouveau' in out.stdout.lower():
     runeach([
         'sudo echo "blacklist nouveau" > /etc/modprobe.d/nouveau.conf'
@@ -49,13 +49,11 @@ if 'nouveau' in out.stdout.lower():
 KERNEL_MODULES = "nvidia nvidia_modeset nvidia_uvm nvidia_drm"
 runeach([
     f'sudo sed -i "s/MODULES=()/MODULES=({KERNEL_MODULES})/" /etc/mkinitcpio.conf'
-])
 
-runeach([
     # nvidia options
     'sudo echo "options nvidia_drm modeset=1 fbdev=1" > /etc/modprobe.d/nvidia.conf',
 
-    # rebuild initramfs
+    # rebuild initramfs with new kernel and nvidia stuff
     'sudo mkinitcpio -P',
 
     # clone desktop dotfiles
