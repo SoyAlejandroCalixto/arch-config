@@ -35,12 +35,12 @@ sudo nvidia-xconfig
 KERNEL_MODULES="nvidia nvidia_modeset nvidia_uvm nvidia_drm"
 sudo sed -i "s/MODULES=()/MODULES=(${KERNEL_MODULES})/" /etc/mkinitcpio.conf
 
-sudo echo "options nvidia_drm modeset=1 fbdev=1" > /etc/modprobe.d/nvidia.conf
+echo "options nvidia_drm modeset=1 fbdev=1" | sudo tee /etc/modprobe.d/nvidia.conf &> /dev/null
 sudo mkinitcpio -P
 
 # disable nouveau if you are using it
 if lsmod | grep nouveau &> /dev/null; then
-    sudo echo "blacklist nouveau" > /etc/modprobe.d/nouveau.conf
+    echo "blacklist nouveau" | sudo tee /etc/modprobe.d/nouveau.conf &> /dev/null
 fi
 
 # clone desktop dotfiles
@@ -56,7 +56,9 @@ git clone https://github.com/SoyAlejandroCalixto/nvim-config ~/.config/nvim
 echo -e "\neval \"\$(fnm env --use-on-cd --shell zsh)\"" >> $HOME/.zshrc
 
 # monitors settings
-cat << EOF > ~/.config/hypr/monitor.conf
+cat << EOF > ~/.config/hypr/monitors.conf
 monitor=HDMI-1,1920x1080@75,0x0,1
 monitor=DP-1,1920x1080@60,1920x0,1
 EOF
+
+echo -e "\e[32mFinished.\e[0m\n"
