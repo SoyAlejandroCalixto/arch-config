@@ -10,7 +10,6 @@ runeach([
 
     # remove unused packages
     'sudo pacman -Rns --noconfirm dolphin vim kitty',
-    'git clone https://aur.archlinux.org/paru-git.git $HOME/paru-git',
 
     # install AUR helper (paru)
     'git clone https://aur.archlinux.org/paru-git.git $HOME/paru-git',
@@ -18,8 +17,8 @@ runeach([
     'sudo rm -rf $HOME/paru-git',
 
     # install system packages
-    'sudo pacman -S --needed --noconfirm git neovim pyenv hyprland hyprpaper zsh noto-fonts-emoji adobe-source-han-sans-jp-fonts vlc eog waybar polkit-kde-agent xdg-desktop-portal-hyprland xdg-desktop-portal-gtk gnome-themes-extra fastfetch wl-clipboard wtype ranger wezterm discord dunst fontconfig zip unzip p7zip lsd bat fzf',
-    'paru -S --noconfirm --needed brave-bin rofi-wayland rofimoji clipse hyprshot spotify adwaita-qt5-git adwaita-qt6-git fnm',
+    'sudo pacman -S --needed --noconfirm git neovim hyprland hyprpaper zsh noto-fonts-emoji adobe-source-han-sans-jp-fonts ttf-cascadia-code-nerd inter-font vlc eog waybar polkit-kde-agent xdg-desktop-portal-hyprland xdg-desktop-portal-gtk gnome-themes-extra fastfetch wl-clipboard wtype ranger wezterm discord dunst fontconfig zip unzip p7zip lsd bat fzf pyenv',
+    'paru -S --needed --noconfirm brave-bin rofi-wayland rofimoji clipse hyprshot spotify adwaita-qt5-git adwaita-qt6-git fnm',
 
     # zsh plugins
     'chsh -s $(which zsh)',
@@ -27,6 +26,7 @@ runeach([
     'git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k',
     'git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions',
     'git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting',
+    'git clone https://github.com/hlissner/zsh-autopair ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autopair',
 
     # install kernel zen
     'sudo pacman -S --needed --noconfirm linux-zen linux-zen-headers',
@@ -58,7 +58,7 @@ runeach([
 
     # clone desktop dotfiles
     'git clone https://github.com/SoyAlejandroCalixto/arch4devs $HOME/arch4devs',
-    'sudo cp $HOME/arch4devs/. $HOME',
+    'cp -r $HOME/arch4devs/. $HOME',
     # clean repo trash
     'sudo rm -rf $HOME/arch4devs && sudo rm -rf $HOME/.git && sudo rm -rf $HOME/README.md && sudo rm -rf $HOME/LICENSE && sudo rm -rf $HOME/.gitignore',
 
