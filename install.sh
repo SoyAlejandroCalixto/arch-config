@@ -12,7 +12,7 @@ cd ~/
 sudo rm -rf ~/paru-git
 
 # install packages
-sudo pacman -S --needed --noconfirm git neovim hyprland hyprpaper zsh noto-fonts-emoji adobe-source-han-sans-jp-fonts ttf-cascadia-code-nerd inter-font vlc eog waybar polkit-kde-agent xdg-desktop-portal-hyprland xdg-desktop-portal-gtk python-gobject gnome-themes-extra fastfetch wl-clipboard wtype ranger wezterm discord dunst fontconfig zip unzip p7zip lsd bat fzf pyenv bitwarden
+sudo pacman -S --needed --noconfirm git neovim hyprland hyprpaper zsh noto-fonts-emoji adobe-source-han-sans-jp-fonts ttf-cascadia-code-nerd inter-font vlc eog waybar polkit-kde-agent xdg-desktop-portal-hyprland xdg-desktop-portal-gtk python-gobject gnome-themes-extra fastfetch wl-clipboard wtype ranger ripgrep wezterm discord dunst fontconfig zip unzip p7zip lsd bat fzf pyenv bitwarden
 paru -S --needed --noconfirm brave-bin rofi-wayland rofimoji clipse hyprshot spotify adwaita-qt5-git adwaita-qt6-git fnm visual-studio-code-bin
 
 # zsh plugins
