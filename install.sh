@@ -61,9 +61,11 @@ monitor=HDMI-1,1920x1080@75,0x0,1
 monitor=DP-1,1920x1080@60,1920x0,1
 EOF
 
-# ranger plugins
+# ranger config and plugins
 git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
-echo "default_linemode devicons" >> $HOME/.config/ranger/rc.conf
+echo "default_linemode devicons" >> ~/.config/ranger/rc.conf
 git clone https://github.com/maximtrp/ranger-archives.git ~/.config/ranger/plugins/ranger-archives
+echo "set preview_images true" >> ~/.config/ranger/rc.conf
+echo "set preview_images_method iterm2" >> ~/.config/ranger/rc.conf
 
 echo -e "\e[32mFinished.\e[0m\n"
