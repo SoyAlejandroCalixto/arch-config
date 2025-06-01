@@ -12,8 +12,8 @@ cd ~/
 sudo rm -rf ~/paru-git
 
 # Install packages
-sudo pacman -S --needed --noconfirm git neovim hyprland hyprpaper zsh noto-fonts-emoji adobe-source-han-sans-jp-fonts ttf-cascadia-code-nerd inter-font vlc eog waybar polkit-kde-agent xdg-desktop-portal-hyprland xdg-desktop-portal-gtk python-gobject gnome-themes-extra fastfetch wl-clipboard wtype ranger ripgrep zoxide atuin wezterm discord dunst fontconfig zip unzip p7zip lsd bat fzf bitwarden
-paru -S --needed --noconfirm brave-bin rofi-wayland rofimoji clipton hyprshot spotify adwaita-qt5-git adwaita-qt6-git fnm visual-studio-code-bin
+sudo pacman -S --needed --noconfirm git neovim hyprland hyprpaper zsh noto-fonts-emoji adobe-source-han-sans-jp-fonts ttf-cascadia-code-nerd inter-font vlc eog waybar polkit-kde-agent xdg-desktop-portal-hyprland xdg-desktop-portal-gtk python-gobject gnome-themes-extra fastfetch wl-clipboard wtype ranger ripgrep zoxide atuin wezterm discord dunst fontconfig zip unzip p7zip lsd bat fzf bitwarden github-cli
+paru -S --needed --noconfirm brave-bin rofi-wayland rofimoji clipton hyprshot spotify adwaita-qt5-git adwaita-qt6-git fnm visual-studio-code-bin cloudflare-warp-bin
 
 # Zsh plugins
 chsh -s $(which zsh)
@@ -74,3 +74,10 @@ echo "set preview_images true" >> ~/.config/ranger/rc.conf
 echo "set preview_images_method iterm2" >> ~/.config/ranger/rc.conf
 
 echo -e "\e[32mFinished.\e[0m\n"
+
+# Cloudflare Warp
+sudo systemctl enable warp-svc
+sudo systemctl start warp-svc
+warp-cli registration new
+warp-cli connect
+
