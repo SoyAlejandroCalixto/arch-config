@@ -62,8 +62,8 @@ echo -e "\neval \"\$(fnm env --use-on-cd --shell zsh)\"" >> $HOME/.zshrc
 
 # Monitors settings
 cat << EOF > ~/.config/hypr/monitors.conf
-monitor=HDMI-1,1920x1080@75,0x0,1
-monitor=DP-1,1920x1080@60,1920x0,1
+monitor=HDMI-A-1,1920x1080@75,0x0,1
+monitor=DP-2,1920x1080@60,1920x0,1
 EOF
 
 # Ranger config and plugins
