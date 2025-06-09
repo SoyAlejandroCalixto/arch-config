@@ -1,27 +1,21 @@
+sudo -v # make sudo never ask me for a password
+while true; do sudo -n true; sleep 60; done 2>/dev/null &
+
 # Update system
 sudo pacman -Syu --noconfirm
 
 # Remove unused packages
 sudo pacman -Rns --noconfirm dolphin vim kitty
 
-# Install AUR helper (paru)
-git clone https://aur.archlinux.org/paru-git.git ~/paru-git
-cd ~/paru-git
-makepkg -si
-cd ~/
-sudo rm -rf ~/paru-git
+# Clone my desktop config
+git clone https://github.com/SoyAlejandroCalixto/arch4devs ~/arch4devs
+cd ~/arch4devs
+./install.sh
+sudo rm -rf ~/arch4devs && sudo rm -rf ~/.git && sudo rm -rf ~/README.md && sudo rm -rf ~/LICENSE && sudo rm -rf ~/.gitignore # Clean repo trash
 
-# Install packages
-sudo pacman -S --needed --noconfirm sudo pacman -S --noconfirm --needed git github-cli neovim hyprland hyprpaper lua lua-lgi playerctl socat zsh noto-fonts-emoji adobe-source-han-sans-jp-fonts ttf-cascadia-code-nerd inter-font vlc eog polkit-kde-agent xdg-desktop-portal-hyprland xdg-desktop-portal-gtk gnome-themes-extra fastfetch wl-clipboard wtype ranger ripgrep zoxide atuin wezterm discord dunst fontconfig zip unzip p7zip lsd bat fzf bitwarden
-paru -S --noconfirm --needed brave-bin eww rofi-wayland rofimoji clipton hyprshot spotify adwaita-qt5-git adwaita-qt6-git fnm cloudflare-warp-bin
-
-# Zsh plugins
-chsh -s $(which zsh)
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-git clone https://github.com/hlissner/zsh-autopair ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autopair
+# Install extra packages
+sudo pacman -S --needed --noconfirm fzf bitwarden
+paru -S --noconfirm --needed fnm cloudflare-warp-bin
 
 # Install kernel zen
 sudo pacman -S --needed --noconfirm linux-zen linux-zen-headers
@@ -49,11 +43,6 @@ else
     sudo pacman -S --needed --noconfirm mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon
 fi
 
-# Clone desktop dotfiles
-git clone https://github.com/SoyAlejandroCalixto/arch4devs ~/arch4devs
-cp -r ~/arch4devs/. ~/
-sudo rm -rf ~/arch4devs && sudo rm -rf ~/.git && sudo rm -rf ~/README.md && sudo rm -rf ~/LICENSE && sudo rm -rf ~/.gitignore # Clean repo trash
-
 # Clone neovim config
 git clone https://github.com/SoyAlejandroCalixto/nvim-config ~/.config/nvim
 
@@ -79,3 +68,6 @@ sudo systemctl start warp-svc
 warp-cli registration new
 
 echo -e "\e[32mFinished.\e[0m\n"
+
+trap 'kill $!' EXIT # kill the process that keeps sudo without password
+
