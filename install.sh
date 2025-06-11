@@ -40,7 +40,7 @@ if lspci | grep -i "nvidia" &> /dev/null; then
     fi
 else 
     # AMD stuff
-    sudo pacman -S --needed --noconfirm mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon
+    sudo pacman -S --noconfirm --needed linux-firmware mesa lib32-mesa opencl-mesa rocm-opencl-runtime vulkan-radeon lib32-vulkan-radeon amdvlk lib32-amdvlk
 fi
 
 # Clone neovim config
