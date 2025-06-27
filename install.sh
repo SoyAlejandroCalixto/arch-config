@@ -4,6 +4,10 @@ while true; do sudo -n true; sleep 60; done 2>/dev/null &
 # Update system
 sudo pacman -Syu --noconfirm
 
+# Set the best mirror
+sudo pacman -S --needed --noconfirm reflector
+sudo reflector --latest 10 --age 1 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+
 # Remove unused packages
 sudo pacman -Rns --noconfirm dolphin vim kitty
 
