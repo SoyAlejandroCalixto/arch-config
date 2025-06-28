@@ -1,5 +1,6 @@
 sudo -v # make sudo never ask me for a password
 while true; do sudo -n true; sleep 60; done 2>/dev/null &
+SUDO_PID=$!
 
 # Update system
 sudo pacman -Syu --noconfirm
@@ -42,7 +43,7 @@ if lspci | grep -i "nvidia" &> /dev/null; then
     if lsmod | grep nouveau &> /dev/null; then
         echo "blacklist nouveau" | sudo tee /etc/modprobe.d/nouveau.conf &> /dev/null
     fi
-else 
+else
     # AMD stuff
     sudo pacman -S --noconfirm --needed linux-firmware mesa lib32-mesa opencl-mesa rocm-opencl-runtime vulkan-radeon lib32-vulkan-radeon amdvlk lib32-amdvlk
 fi
@@ -73,5 +74,4 @@ warp-cli registration new
 
 echo -e "\e[32mFinished.\e[0m\n"
 
-trap 'kill $!' EXIT # kill the process that keeps sudo without password
-
+trap "kill $SUDO_PID 2>/dev/null" EXIT # kill the process that keeps sudo without password
