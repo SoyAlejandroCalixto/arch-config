@@ -71,6 +71,7 @@ echo "set preview_images_method iterm2" >> ~/.config/ranger/rc.conf
 sudo systemctl enable warp-svc
 sudo systemctl start warp-svc
 warp-cli registration new
+echo "exec-once = warp-cli connect" >> ~/.config/hypr/autostart.conf
 
 echo -e "\e[32mFinished.\e[0m\n"
 
