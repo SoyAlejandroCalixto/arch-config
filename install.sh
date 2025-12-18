@@ -61,13 +61,14 @@ monitor=DP-2,1920x1080@60,1920x0,1
 EOF
 
 # Ranger config and plugins
+mkdir -p $HOME/.config/ranger/plugins
 git clone https://github.com/alexanderjeurissen/ranger_devicons $HOME/.config/ranger/plugins/ranger_devicons
 echo "default_linemode devicons" >> $HOME/.config/ranger/rc.conf
 git clone https://github.com/maximtrp/ranger-archives.git $HOME/.config/ranger/plugins/ranger-archives
 echo "set preview_images true" >> $HOME/.config/ranger/rc.conf
 echo "set preview_images_method iterm2" >> $HOME/.config/ranger/rc.conf
 
-# Cloudflare Warp
+# Cloudflare Warp config
 sudo systemctl enable warp-svc
 sudo systemctl start warp-svc
 warp-cli registration new
