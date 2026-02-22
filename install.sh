@@ -73,6 +73,9 @@ sudo systemctl enable warp-svc
 sudo systemctl start warp-svc
 warp-cli registration new
 
+# Clone another dots
+cp $HOME/arch-config/dots/. $HOME/
+
 echo -e "\e[32mFinished.\e[0m\n"
 
 trap "kill $SUDO_PID 2>/dev/null" EXIT # kill the process that keeps sudo without password
