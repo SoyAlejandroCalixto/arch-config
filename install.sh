@@ -74,7 +74,7 @@ sudo systemctl start warp-svc
 warp-cli registration new
 
 # Clone another dots
-cp $HOME/arch-config/dots/. $HOME/
+cp -r $HOME/arch-config/dots/. $HOME/
 
 echo -e "\e[32mFinished.\e[0m\n"
 
