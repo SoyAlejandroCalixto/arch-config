@@ -26,4 +26,3 @@ cat << EOF > $HOME/.gitconfig
 	autocrlf = input
 EOF
 
-echo -e "\e[32mFinished.\e[0m\n"
