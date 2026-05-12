@@ -2,7 +2,6 @@
 git clone https://github.com/SoyAlejandroCalixto/arch4devs $HOME/arch4devs
 cd $HOME/arch4devs
 ./install.sh
-sudo rm -rf $HOME/arch4devs && sudo rm -rf $HOME/.git && sudo rm -rf $HOME/README.md && sudo rm -rf $HOME/LICENSE && sudo rm -rf $HOME/.gitignore # Clean repo trash
 
 # Monitors settings
 cat << EOF > $HOME/.config/hypr/monitors.conf
